@@ -27,7 +27,7 @@ public class Main_Mentol
 		{
 			showTime mentolCorp= new showTime();
 			
-			System.out.println("\nLogged in at "+mentolCorp.dateDay);
+			System.out.println("\nLogged in at "+mentolCorp.dateDay+"WIB");
 			System.out.println("+++++++++++++++++++++++++++++++++++++");
 			System.out.println("|   Mentol Corp Employee Database   |");
 			System.out.println("+++++++++++++++++++++++++++++++++++++");
@@ -86,7 +86,7 @@ public class Main_Mentol
 	{
 		while(true)
 		{
-//			System.out.print("Current employee daata");
+//			System.out.print("Current employee data");
 			show_curr();
 			System.out.print("Using Employee Index to update So...");
 			chooseIdx idx = new chooseIdx();
@@ -287,21 +287,21 @@ public class Main_Mentol
 		showTime nw= new showTime();
 		System.out.println("Current employee in corporation on "+nw.dateDay+" is :\n");
 		System.out.println("|-------|---------|---------------------|--------|------------|---------------|");
-		System.out.printf("|%-7s|%-9s|%-21s|%-8s|%-12s|%-15s|\n","No","Code Id","Employee Name","Gender","Department","Salary");
+		System.out.printf("|%-7s|%-9s|%-21s|%-8s|%-12s|%-18s|\n","No","Code Id","Employee Name","Gender","Department","Salary (Rp)");
 		System.out.println("|-------|---------|---------------------|--------|------------|---------------|");
 		for(Data_type_need show:datacorp)
 		{
 			
 			if(show.getGender().equalsIgnoreCase("Male") )
 			{
-				System.out.printf("|%7d|%9s|%21s|%8s|%12s|%15d|",r,show.getId(),show.getName(),"Male",show.getJobdesk(),show.getSalary());
+				System.out.printf("|%7d|%9s|%21s|%8s|%12s|%18d|",r,show.getId(),show.getName(),"Male",show.getJobdesk(),show.getSalary());
 			}
 			if(show.getGender().equalsIgnoreCase("Female"))
 			{
-				System.out.printf("|%7d|%9s|%21s|%8s|%12s|%15d|",r,show.getId(),show.getName(),"Female",show.getJobdesk(),show.getSalary());
+				System.out.printf("|%7d|%9s|%21s|%8s|%12s|%18d|",r,show.getId(),show.getName(),"Female",show.getJobdesk(),show.getSalary());
 			}
 			
-//			System.out.printf("|%-7d|%-9s|%-21s|%-8s|%-12s|%-15d|",r,show.getId(),show.getName(),show.getGender(),show.getJobdesk(),show.getSalary());
+
 			System.out.println();
 			r++;
 		}
@@ -353,6 +353,7 @@ public class Main_Mentol
 					break;
 				}
 			}
+			name=name.trim();
 //				d++;
 			while(true)
 			{
@@ -441,7 +442,7 @@ public class Main_Mentol
 		showTime()
 		{
 			SimpleDateFormat GMTdate = new SimpleDateFormat("EEE dd-MMM-yyyy hh:mm:ss aa");
-			GMTdate.setTimeZone(TimeZone.getTimeZone("GMT+07:00"));
+			GMTdate.setTimeZone(TimeZone.getTimeZone("GMT+07:00"));//WIB timeline
 			dateDay=GMTdate.format(new Date());
 //			System.out.println();
 			
