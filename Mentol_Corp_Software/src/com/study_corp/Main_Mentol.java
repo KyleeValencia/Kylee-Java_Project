@@ -335,31 +335,27 @@ public class Main_Mentol
 		makeData()
 		{
 //			int d=0;
-			while (true)
+			do
 			{
-				System.out.print("Input employee name [>=3]:");
+				System.out.println("Input employee name [>=3]:");
 				System.out.print("-->");
 				name = inp.nextLine();
+				name=name.trim();
 //				inp.wait();
 //				inp.next();
-				if(name.length()<3&&name.length()>0)
+				if(name.length()<3)
 				{
 					System.out.println("Input name length not enough.");
 //					System.out.println("Please get new input");
 				}
-				
-				else if(name.length()>=3)
-				{
-					break;
-				}
-			}
-			name=name.trim();
+			}while(name.length()<3);
 //				d++;
 			while(true)
 			{
 				System.out.print("Input gender [Male | Female]:");
 //				System.out.print("-->");
 				gender=inp.nextLine();
+				gender=gender.trim();
 				if(!(gender.equalsIgnoreCase("Male")||gender.equalsIgnoreCase("Female")))
 				{
 					System.out.println("No such gender");
@@ -374,6 +370,7 @@ public class Main_Mentol
 				System.out.print("Input department [Manager | Supervisor | Admin]:");
 //				System.out.print("-->");
 				tire=inp.nextLine();
+				tire=tire.trim();
 				if(!(tire.equalsIgnoreCase("Manager")||tire.equalsIgnoreCase("Supervisor")||tire.equalsIgnoreCase("Admin")))
 				{
 					System.out.println("No such department");
@@ -383,7 +380,6 @@ public class Main_Mentol
 					break;
 				}
 			}
-			
 			while(true)
 			{
 				String alp = rand.ints(65,91).limit(2).collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();//ascii big alphabet
