@@ -285,7 +285,7 @@ public class Main_Mentol
 		
 		int r=1;
 		showTime nw= new showTime();
-		System.out.println("Current employee in corporation on "+nw.dateDay+" is :\n");
+		System.out.println("Current employee in corporation at "+nw.dateDay+" WIB is :\n");
 		System.out.println("|-------|---------|---------------------|--------|------------|---------------|");
 		System.out.printf("|%-7s|%-9s|%-21s|%-8s|%-12s|%-18s|\n","No","Code Id","Employee Name","Gender","Department","Salary (Rp)");
 		System.out.println("|-------|---------|---------------------|--------|------------|---------------|");
