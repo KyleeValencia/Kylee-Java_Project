@@ -11,7 +11,6 @@ import com.backdata.Data_type_need;
 import com.backdata.Administrator_part;
 import com.backdata.Manager_part;
 import com.backdata.Supervisor_part;
-
 public class Main_Mentol
 {
 
@@ -167,18 +166,18 @@ public class Main_Mentol
 			
 			
 			show_curr();
-			System.out.println("+=================================+");
-			System.out.println("|Continue to delete data (y | n)??|");
-			System.out.println("+=================================+");
+			System.out.println("+===================================+");
+			System.out.println("| Continue to delete data (y | n)?? |");
+			System.out.println("+===================================+");
 
 			chooseYN r=new chooseYN();
 			showTime n=new showTime();
 			System.out.println("Current data on "+n.dateDay+"is");
 				if(r.proceed.equalsIgnoreCase("n"))
 				{
-					System.out.println("*==================*");
+					System.out.println("+==================+");
 					System.out.println("|Finish delete data|");
-					System.out.println("*==================*");
+					System.out.println("+==================+");
 					break;
 				}
 		}
@@ -193,6 +192,7 @@ public class Main_Mentol
 			{
 				System.out.print("Choose index :");
 				iddel=inp.nextInt();
+				inp.nextLine();
 				if(iddel<0||iddel>datacorp.size())
 				{
 					System.out.println("Input index out of bound");
@@ -287,26 +287,26 @@ public class Main_Mentol
 		int r=1;
 		showTime nw= new showTime();
 		System.out.println("Current employee in corporation at "+nw.dateDay+" WIB is :\n");
-		System.out.println("|-------|---------|---------------------|--------|------------|---------------|");
-		System.out.printf("|%-7s|%-9s|%-21s|%-8s|%-12s|%-15s|\n","No","Code Id","Employee Name","Gender","Department","Salary (Rp)");
-		System.out.println("|-------|---------|---------------------|--------|------------|---------------|");
+		System.out.println("|-------|---------|---------------------------------|--------|------------|---------------|");
+		System.out.printf("|%-7s|%-9s|%-33s|%-8s|%-12s|%-15s|\n","No","Code Id","Employee Name","Gender","Department","Salary (Rp)");
+		System.out.println("|-------|---------|---------------------------------|--------|------------|---------------|");
 		for(Data_type_need show:datacorp)
 		{
 			
 			if(show.getGender().equalsIgnoreCase("Male") )
 			{
-				System.out.printf("|%7d|%9s|%21s|%8s|%12s|%15d|",r,show.getId(),show.getName(),"Male",show.getJobdesk(),show.getSalary());
+				System.out.printf("|%7d|%9s|%33s|%8s|%12s|%15d|",r,show.getId(),show.getName(),"Male",show.getJobdesk(),show.getSalary());
 			}
 			if(show.getGender().equalsIgnoreCase("Female"))
 			{
-				System.out.printf("|%7d|%9s|%21s|%8s|%12s|%15d|",r,show.getId(),show.getName(),"Female",show.getJobdesk(),show.getSalary());
+				System.out.printf("|%7d|%9s|%33s|%8s|%12s|%15d|",r,show.getId(),show.getName(),"Female",show.getJobdesk(),show.getSalary());
 			}
 			
 
 			System.out.println();
 			r++;
 		}
-		System.out.println("|-------|---------|---------------------|--------|------------|---------------|");
+		System.out.println("|-------|---------|---------------------------------|--------|------------|---------------|");
 	}
 	private void RaiseSalary(String type)
 	{
@@ -418,7 +418,7 @@ public class Main_Mentol
 			{
 				System.out.print("-->");
 				proceed = inp.next();
-//				proceed = inp.nextLine();
+				inp.nextLine();
 				if(!(proceed.equalsIgnoreCase("y") ||proceed.equalsIgnoreCase("n")))
 				{
 					System.out.println("Not the expected input");
