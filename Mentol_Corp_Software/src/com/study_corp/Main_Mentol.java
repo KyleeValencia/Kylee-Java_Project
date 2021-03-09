@@ -38,6 +38,7 @@ public class Main_Mentol
 			do
 			{
 				choose = inp.next().charAt(0);
+				inp.nextLine();
 				if(choose<'1'||choose>'4')
 				{
 					System.out.println("No such operation. Take new input");
@@ -287,18 +288,18 @@ public class Main_Mentol
 		showTime nw= new showTime();
 		System.out.println("Current employee in corporation at "+nw.dateDay+" WIB is :\n");
 		System.out.println("|-------|---------|---------------------|--------|------------|---------------|");
-		System.out.printf("|%-7s|%-9s|%-21s|%-8s|%-12s|%-18s|\n","No","Code Id","Employee Name","Gender","Department","Salary (Rp)");
+		System.out.printf("|%-7s|%-9s|%-21s|%-8s|%-12s|%-15s|\n","No","Code Id","Employee Name","Gender","Department","Salary (Rp)");
 		System.out.println("|-------|---------|---------------------|--------|------------|---------------|");
 		for(Data_type_need show:datacorp)
 		{
 			
 			if(show.getGender().equalsIgnoreCase("Male") )
 			{
-				System.out.printf("|%7d|%9s|%21s|%8s|%12s|%18d|",r,show.getId(),show.getName(),"Male",show.getJobdesk(),show.getSalary());
+				System.out.printf("|%7d|%9s|%21s|%8s|%12s|%15d|",r,show.getId(),show.getName(),"Male",show.getJobdesk(),show.getSalary());
 			}
 			if(show.getGender().equalsIgnoreCase("Female"))
 			{
-				System.out.printf("|%7d|%9s|%21s|%8s|%12s|%18d|",r,show.getId(),show.getName(),"Female",show.getJobdesk(),show.getSalary());
+				System.out.printf("|%7d|%9s|%21s|%8s|%12s|%15d|",r,show.getId(),show.getName(),"Female",show.getJobdesk(),show.getSalary());
 			}
 			
 
@@ -334,8 +335,7 @@ public class Main_Mentol
 		String name,gender,tire,genId;
 		makeData()
 		{
-//			int d=0;
-			do
+			while(true)
 			{
 				System.out.println("Input employee name [>=3]:");
 				System.out.print("-->");
@@ -348,12 +348,17 @@ public class Main_Mentol
 					System.out.println("Input name length not enough.");
 //					System.out.println("Please get new input");
 				}
-			}while(name.length()<3);
+				else
+				{
+					break;
+				}
+			}
+//			
 //				d++;
 			while(true)
 			{
-				System.out.print("Input gender [Male | Female]:");
-//				System.out.print("-->");
+				System.out.println("Input gender [Male | Female]:");
+				System.out.print("-->");
 				gender=inp.nextLine();
 				gender=gender.trim();
 				if(!(gender.equalsIgnoreCase("Male")||gender.equalsIgnoreCase("Female")))
@@ -367,8 +372,8 @@ public class Main_Mentol
 			}
 			while(true)
 			{
-				System.out.print("Input department [Manager | Supervisor | Admin]:");
-//				System.out.print("-->");
+				System.out.println("Input department [Manager | Supervisor | Admin]:");
+				System.out.print("-->");
 				tire=inp.nextLine();
 				tire=tire.trim();
 				if(!(tire.equalsIgnoreCase("Manager")||tire.equalsIgnoreCase("Supervisor")||tire.equalsIgnoreCase("Admin")))
